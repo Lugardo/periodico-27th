@@ -54,7 +54,38 @@ body {
   margin-bottom: 8px;
   border-bottom: 1px solid var(--border);
 }
-.np-eyebrow { justify-content: center; margin: 0 auto 14px; }
+/* "Edición diaria" / "Archivo": texto simple arriba centrado (no chip). */
+.np-kicker-top {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  margin-bottom: 14px;
+}
+
+/* Botón de tema claro/oscuro, fijo arriba a la derecha. El icono lo pone el CSS. */
+.np-tema {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 50;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--card) 82%, transparent);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  transition: transform 0.15s;
+}
+.np-tema:hover { transform: scale(1.08); }
+.np-tema::before { content: "🌙"; }
+html.dark .np-tema::before { content: "☀️"; }
 .np-logo {
   display: inline-block;
   font-size: clamp(40px, 8vw, 76px);
@@ -89,17 +120,25 @@ body {
 }
 
 /* ── secciones ────────────────────────────────────────────────────────────── */
-.np-seccion { margin-top: 48px; }
+.np-seccion { margin-top: 52px; }
+/* Encabezado de sección estilo editorial: rótulo + línea que se extiende.
+   No es una "etiqueta" suelta, es el título de la sección del periódico. */
 .np-kicker {
-  display: inline-block;
-  margin-bottom: 20px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--foreground);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--foreground);
+  color: var(--muted-foreground);
+}
+.np-kicker::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
 }
 .np-grid {
   display: grid;

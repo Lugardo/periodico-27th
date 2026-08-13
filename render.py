@@ -21,6 +21,19 @@ from datetime import datetime, timezone, timedelta
 
 NOMBRE = "27th News"                       # nombre del periódico (editable)
 LEMA = "Las noticias de inteligencia artificial, cada mañana."
+
+# Tema claro/oscuro: sigue al dispositivo por defecto (prefers-color-scheme) y
+# recuerda la elección del lector. Orbit usa la clase `dark` en <html>.
+SCRIPT_TEMA = """<script>
+(function(){try{var t=localStorage.getItem('27th-tema');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();
+function toggleTema(){var d=document.documentElement.classList.toggle('dark');
+try{localStorage.setItem('27th-tema',d?'dark':'light');}catch(e){}}
+</script>"""
+# El icono del botón lo pone el CSS según el tema (🌙 en claro, ☀️ en oscuro).
+BOTON_TEMA = ('<button class="np-tema" onclick="toggleTema()" '
+              'aria-label="Cambiar tema claro/oscuro"></button>')
 TZ = timezone(timedelta(hours=-7))         # America/Mazatlan (Culiacán, sin DST)
 AQUI = os.path.dirname(os.path.abspath(__file__))
 DIR_EDICIONES = os.path.join(AQUI, "ediciones")
@@ -61,11 +74,8 @@ def card_articulo(a: dict) -> str:
         f'rel="noopener">{esc(f.get("nombre") or _dominio(f.get("url")))} ↗</a>'
         for f in fuentes if f.get("url"))
     return f"""
-        <article class="feature-card np-card">
-          <div class="feature-card__header">
-            <span class="feature-card__label">{esc(_cat_label(a.get("categoria")))}</span>
-          </div>
-          <h3 class="feature-card__title np-card__title">{esc(a.get("titulo"))}</h3>
+        <article class="np-card">
+          <h3 class="np-card__title">{esc(a.get("titulo"))}</h3>
           <p class="np-card__resumen">{esc(a.get("resumen"))}</p>
           <div class="np-card__fuentes">{links}</div>
         </article>"""
@@ -103,20 +113,22 @@ def render_edicion(data: dict) -> str:
         editorial = f'<p class="np-editorial">{esc(data["editorial"])}</p>'
 
     return f"""<!doctype html>
-<html lang="es" class="dark">
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(NOMBRE)} · {fecha_larga(fecha)}</title>
 <link rel="stylesheet" href="/orbit-style.css">
 <link rel="stylesheet" href="/periodico.css">
+{SCRIPT_TEMA}
 </head>
 <body>
+  {BOTON_TEMA}
   <div class="container np-wrap">
     <header class="np-masthead">
-      <div class="eyebrow np-eyebrow">Edición diaria</div>
+      <div class="np-kicker-top">Edición diaria</div>
       <a href="/" class="np-logo">{esc(NOMBRE)}</a>
-      <div class="np-fecha">{esc(fecha_larga(fecha))} · Culiacán</div>
+      <div class="np-fecha">{esc(fecha_larga(fecha))}</div>
       <div class="np-titular">{esc(data.get("titular_del_dia"))}</div>
       {editorial}
     </header>
@@ -153,18 +165,20 @@ def render_indice(titulares: dict) -> str:
     cuerpo = f'<div class="np-grid">{filas}</div>' if hay else \
         '<p class="np-editorial">Aún no hay ediciones. La primera llega mañana a las 6 AM.</p>'
     return f"""<!doctype html>
-<html lang="es" class="dark">
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(NOMBRE)} · Ediciones</title>
 <link rel="stylesheet" href="/orbit-style.css">
 <link rel="stylesheet" href="/periodico.css">
+{SCRIPT_TEMA}
 </head>
 <body>
+  {BOTON_TEMA}
   <div class="container np-wrap">
     <header class="np-masthead">
-      <div class="eyebrow np-eyebrow">Archivo</div>
+      <div class="np-kicker-top">Archivo</div>
       <div class="np-logo">{esc(NOMBRE)}</div>
       <div class="np-fecha">{esc(LEMA)}</div>
     </header>

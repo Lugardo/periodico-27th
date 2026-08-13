@@ -1,16 +1,24 @@
 <!doctype html>
-<html lang="es" class="dark">
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>27th News · Ediciones</title>
 <link rel="stylesheet" href="/orbit-style.css">
 <link rel="stylesheet" href="/periodico.css">
+<script>
+(function(){try{var t=localStorage.getItem('27th-tema');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();
+function toggleTema(){var d=document.documentElement.classList.toggle('dark');
+try{localStorage.setItem('27th-tema',d?'dark':'light');}catch(e){}}
+</script>
 </head>
 <body>
+  <button class="np-tema" onclick="toggleTema()" aria-label="Cambiar tema claro/oscuro"></button>
   <div class="container np-wrap">
     <header class="np-masthead">
-      <div class="eyebrow np-eyebrow">Archivo</div>
+      <div class="np-kicker-top">Archivo</div>
       <div class="np-logo">27th News</div>
       <div class="np-fecha">Las noticias de inteligencia artificial, cada mañana.</div>
     </header>
