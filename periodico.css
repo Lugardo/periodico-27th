@@ -1,0 +1,141 @@
+/* Periódico IA — capa de estilo del periódico SOBRE orbit-style.css.
+   Usa las variables del sistema Orbit (--background, --card, --muted, --border,
+   --radius-*, sombras) para heredar la misma línea. Aquí solo va lo específico
+   del formato periódico: masthead, rejilla de notas, tarjeta de artículo. */
+
+.np-wrap { padding: 48px 0 96px; }
+
+/* ── masthead ─────────────────────────────────────────────────────────────── */
+.np-masthead {
+  text-align: center;
+  padding: 24px 0 40px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.np-eyebrow { justify-content: center; margin: 0 auto 14px; }
+.np-logo {
+  display: inline-block;
+  font-size: clamp(40px, 8vw, 76px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--foreground);
+  text-decoration: none;
+}
+.np-fecha {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.np-titular {
+  max-width: 720px;
+  margin: 26px auto 0;
+  font-size: clamp(20px, 3vw, 27px);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+.np-editorial {
+  max-width: 640px;
+  margin: 16px auto 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+/* ── secciones ────────────────────────────────────────────────────────────── */
+.np-seccion { margin-top: 48px; }
+.np-kicker {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--foreground);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+.np-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+
+/* ── tarjeta de artículo ──────────────────────────────────────────────────── */
+.np-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.np-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.np-card__title {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--card-foreground);
+  margin: 0;
+}
+.np-card__resumen {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  margin: 0;
+  flex: 1;
+}
+.np-card__fuentes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+}
+
+/* ── índice histórico ─────────────────────────────────────────────────────── */
+.np-idx {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px 24px;
+  text-decoration: none;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.np-idx:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.np-idx__titular {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--card-foreground);
+}
+
+/* ── footer ───────────────────────────────────────────────────────────────── */
+.np-footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+
+@media (max-width: 640px) {
+  .np-wrap { padding: 28px 0 64px; }
+  .np-grid { grid-template-columns: 1fr; }
+}
