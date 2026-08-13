@@ -19,7 +19,7 @@ import re
 import sys
 from datetime import datetime, timezone, timedelta
 
-NOMBRE = "Órbita IA"                       # nombre del periódico (editable)
+NOMBRE = "27th News"                       # nombre del periódico (editable)
 LEMA = "Las noticias de inteligencia artificial, cada mañana."
 TZ = timezone(timedelta(hours=-7))         # America/Mazatlan (Culiacán, sin DST)
 AQUI = os.path.dirname(os.path.abspath(__file__))
@@ -124,7 +124,7 @@ def render_edicion(data: dict) -> str:
       {secciones}
     </main>
     <footer class="np-footer">
-      <a class="link-muted" href="/">← Ver todas las ediciones</a>
+      <a class="np-btn" href="/"><span>←</span> Todas las ediciones</a>
       <span>{esc(NOMBRE)} — {esc(LEMA)}</span>
     </footer>
   </div>
