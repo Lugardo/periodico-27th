@@ -1,9 +1,8 @@
-/* Periódico IA — capa de estilo del periódico SOBRE orbit-style.css.
-   Usa las variables del sistema Orbit (--background, --card, --muted, --border,
-   --radius-*, sombras) para heredar la misma línea. Aquí solo va lo específico
-   del formato periódico: masthead, rejilla de notas, tarjeta de artículo. */
+/* 27th News — capa de estilo SOBRE orbit-style.css. Usa las variables del sistema
+   Orbit (--background, --card, --muted, --border, --radius-*, sombras) para heredar
+   la misma línea; aquí solo va lo específico del periódico. */
 
-/* Leve degradado de fondo: un halo suave arriba para dar profundidad, no plano. */
+/* Leve degradado de fondo: halo suave arriba para dar profundidad. */
 body {
   background:
     radial-gradient(1100px 460px at 50% -8%,
@@ -12,22 +11,33 @@ body {
   background-attachment: fixed;
 }
 
-/* Botón metálico — captura la estética "liquid metal" con CSS puro:
-   degradado oscuro, brillo interno arriba, y un destello que cruza al hover. */
+.np-wrap { padding: 48px 0 96px; }
+
+/* ── botón de tema (ícono SVG plano; luna en claro, sol en oscuro) ─────────── */
+.np-tema {
+  position: fixed; top: 16px; right: 16px; z-index: 50;
+  width: 42px; height: 42px; border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--card) 82%, transparent);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  display: grid; place-items: center;
+  transition: transform 0.15s;
+}
+.np-tema:hover { transform: scale(1.08); }
+.np-tema .ico { width: 19px; height: 19px; color: var(--foreground); }
+.np-tema .ico-sol { display: none; }
+html.dark .np-tema .ico-luna { display: none; }
+html.dark .np-tema .ico-sol { display: block; }
+
+/* ── botón metálico (estética liquid-metal en CSS) ────────────────────────── */
 .np-btn {
-  position: relative;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 11px 22px;
-  border-radius: 999px;
+  position: relative; overflow: hidden;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 22px; border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.10);
   background: linear-gradient(180deg, #2a2a2e 0%, #050505 100%);
-  color: #fff;
-  font-weight: 600;
-  font-size: 14px;
-  text-decoration: none;
+  color: #fff; font-weight: 600; font-size: 14px; text-decoration: none;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 8px 20px rgba(0, 0, 0, 0.35);
   transition: transform 0.15s, box-shadow 0.15s;
 }
@@ -36,184 +46,98 @@ body {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.20), 0 12px 28px rgba(0, 0, 0, 0.45);
 }
 .np-btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
+  content: ""; position: absolute; inset: 0;
   background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.20) 50%, transparent 70%);
-  transform: translateX(-130%);
-  transition: transform 0.6s ease;
+  transform: translateX(-130%); transition: transform 0.6s ease;
 }
 .np-btn:hover::after { transform: translateX(130%); }
 
-.np-wrap { padding: 48px 0 96px; }
-
 /* ── masthead ─────────────────────────────────────────────────────────────── */
 .np-masthead {
-  text-align: center;
-  padding: 24px 0 40px;
-  margin-bottom: 8px;
+  text-align: center; padding: 24px 0 40px; margin-bottom: 8px;
   border-bottom: 1px solid var(--border);
 }
-/* "Edición diaria" / "Archivo": texto simple arriba centrado (no chip). */
 .np-kicker-top {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--muted-foreground);
-  margin-bottom: 14px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--muted-foreground); margin-bottom: 14px;
 }
-
-/* Botón de tema claro/oscuro, fijo arriba a la derecha. El icono lo pone el CSS. */
-.np-tema {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  z-index: 50;
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--card) 82%, transparent);
-  backdrop-filter: blur(8px);
-  cursor: pointer;
-  font-size: 18px;
-  line-height: 1;
-  display: grid;
-  place-items: center;
-  transition: transform 0.15s;
-}
-.np-tema:hover { transform: scale(1.08); }
-.np-tema::before { content: "🌙"; }
-html.dark .np-tema::before { content: "☀️"; }
 .np-logo {
-  display: inline-block;
-  font-size: clamp(40px, 8vw, 76px);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: var(--foreground);
-  text-decoration: none;
+  display: inline-block; font-size: clamp(40px, 8vw, 76px); font-weight: 700;
+  letter-spacing: -0.04em; line-height: 1; color: var(--foreground); text-decoration: none;
 }
 .np-fecha {
-  margin-top: 12px;
-  font-size: 14px;
-  color: var(--muted-foreground);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+  margin-top: 12px; font-size: 14px; color: var(--muted-foreground);
+  text-transform: uppercase; letter-spacing: 0.14em;
 }
 .np-titular {
-  max-width: 720px;
-  margin: 26px auto 0;
-  font-size: clamp(20px, 3vw, 27px);
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  color: var(--foreground);
+  max-width: 720px; margin: 26px auto 0;
+  font-size: clamp(20px, 3vw, 27px); font-weight: 600; line-height: 1.3;
+  letter-spacing: -0.02em; color: var(--foreground);
 }
 .np-editorial {
-  max-width: 640px;
-  margin: 16px auto 0;
-  font-size: 16px;
-  line-height: 1.6;
+  max-width: 640px; margin: 16px auto 0; font-size: 16px; line-height: 1.6;
   color: var(--muted-foreground);
 }
 
-/* ── secciones ────────────────────────────────────────────────────────────── */
-.np-seccion { margin-top: 52px; }
-/* Encabezado de sección estilo editorial: rótulo + línea que se extiende.
-   No es una "etiqueta" suelta, es el título de la sección del periódico. */
-.np-kicker {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 22px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted-foreground);
-}
-.np-kicker::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
+/* ── rejilla + tarjeta de noticia (es un enlace a su artículo) ────────────── */
 .np-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 18px;
+  margin-top: 44px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px;
 }
-
-/* ── tarjeta de artículo ──────────────────────────────────────────────────── */
 .np-card {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 24px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.15s, transform 0.15s;
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 24px; text-decoration: none;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s, transform 0.15s, border-color 0.15s;
 }
-.np-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.np-card:hover {
+  box-shadow: var(--shadow-lg); transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--foreground) 22%, var(--border));
+}
+/* categoría TENUE dentro del cuadro, arriba del título */
+.np-card__cat {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted-foreground); opacity: 0.72;
+}
 .np-card__title {
-  font-size: 19px;
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  color: var(--card-foreground);
-  margin: 0;
+  font-size: 19px; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em;
+  color: var(--card-foreground); margin: 0;
 }
 .np-card__resumen {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--muted-foreground);
-  margin: 0;
-  flex: 1;
+  font-size: 15px; line-height: 1.6; color: var(--muted-foreground); margin: 0; flex: 1;
 }
-.np-card__fuentes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 14px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
-  font-size: 13px;
+.np-card__mas {
+  font-size: 13px; font-weight: 600; color: var(--foreground);
+  margin-top: 4px; opacity: 0.85;
 }
 
-/* ── índice histórico ─────────────────────────────────────────────────────── */
-.np-idx {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 22px 24px;
-  text-decoration: none;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  transition: box-shadow 0.15s, transform 0.15s;
+/* ── artículo individual ──────────────────────────────────────────────────── */
+.np-volver {
+  display: inline-block; margin-bottom: 22px; font-size: 14px;
+  color: var(--muted-foreground); text-decoration: none;
 }
-.np-idx:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
-.np-idx__titular {
-  font-size: 17px;
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--card-foreground);
+.np-volver:hover { color: var(--foreground); }
+.np-articulo { padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.np-art__title {
+  margin: 12px 0 24px; font-size: clamp(28px, 5vw, 42px); font-weight: 700;
+  line-height: 1.15; letter-spacing: -0.03em; color: var(--foreground);
 }
+.np-art__cuerpo { font-size: 17px; line-height: 1.75; color: var(--foreground); }
+.np-art__cuerpo p { margin: 0 0 18px; }
+.np-fuentes { margin-top: 32px; }
+.np-fuentes__tit {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted-foreground); margin-bottom: 10px;
+}
+.np-fuentes ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; }
+.np-fuentes a { font-size: 14px; }
 
 /* ── footer ───────────────────────────────────────────────────────────────── */
 .np-footer {
-  margin-top: 64px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: space-between;
-  font-size: 13px;
-  color: var(--muted-foreground);
+  margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between;
+  align-items: center; font-size: 13px; color: var(--muted-foreground);
 }
 
 @media (max-width: 640px) {

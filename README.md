@@ -1,23 +1,27 @@
-# Órbita IA — periódico diario de noticias de IA
+# 27th News — periódico diario de noticias de IA
 
 Cada día a las **6:00 AM (Culiacán)** una **routine de Claude Code** busca las
-noticias de IA de las últimas 24 h, arma la edición y la publica. Corre con la
-**suscripción** (no API, sin costo por token). El VPS jala este repo y sirve las
-ediciones bajo `noticias.27th.cloud`.
+noticias de IA de las últimas 24 h, redacta un artículo por noticia y publica la
+edición. Corre con la **suscripción** (no API, sin costo por token). El VPS jala
+este repo y sirve las ediciones bajo `noticias.27th.cloud`.
 
 ```
 routine (nube, 6 AM) → web search → edicion.json → python3 render.py → git push
         │
         ▼
-   VPS → git pull → sirve  ediciones/AAAA-MM-DD.html   (consultable 7 AM)
+   VPS → git pull → sirve la edición del día + una página por noticia   (consultable 7 AM)
 ```
 
-## Estructura
+## Estructura del sitio que se genera
 
-- `render.py` — Python puro (sin dependencias): `edicion.json` → HTML con estilo Orbit + reindexa.
-- `orbit-style.css` — sistema de diseño de Lugardo (base).
-- `periodico.css` — capa de formato periódico sobre Orbit.
-- `ediciones/` — una `AAAA-MM-DD.html` por día + `index.html` (archivo) + `metadata.json` (titulares).
+- `ediciones/AAAA-MM-DD.html` — **portada del día**: lista de noticias (cada cuadro lleva la categoría tenue arriba del título y enlaza a su artículo).
+- `ediciones/AAAA-MM-DD/slug.html` — **un artículo por noticia**: título, cuerpo completo y las fuentes usadas.
+- `ediciones/index.html` — **archivo histórico**: todas las ediciones (se pueden consultar días anteriores).
+- `ediciones/metadata.json` — titular de cada fecha (para el índice).
+
+Archivos del repo: `render.py` (Python puro, sin dependencias), `orbit-style.css`
+(diseño base), `periodico.css` (capa periódico). URLs limpias: `/AAAA-MM-DD` y
+`/AAAA-MM-DD/slug`.
 
 ## Schema del `edicion.json`
 
@@ -29,7 +33,8 @@ routine (nube, 6 AM) → web search → edicion.json → python3 render.py → g
   "articulos": [
     {
       "titulo": "string",
-      "resumen": "2-3 frases en español, palabras propias",
+      "resumen": "1-2 frases para la portada",
+      "cuerpo": "el artículo completo: 2-4 párrafos separados por línea en blanco",
       "categoria": "modelos | agentic-coding | tooling | infra | investigacion | producto | otro",
       "relevancia": 1,
       "fuentes": [{ "nombre": "string", "url": "https://..." }]
@@ -38,6 +43,8 @@ routine (nube, 6 AM) → web search → edicion.json → python3 render.py → g
 }
 ```
 
+`slug` es opcional: si no lo pones, `render.py` lo genera del título.
+
 ---
 
 ## PROMPT DE LA ROUTINE (pegar en claude.ai/code/routines)
@@ -45,7 +52,7 @@ routine (nube, 6 AM) → web search → edicion.json → python3 render.py → g
 > Conecta este repo, programa **cada día a las 6:00 AM America/Mazatlan**, y usa este prompt:
 
 ```
-Eres el editor de "Órbita IA", un periódico diario de noticias de Inteligencia
+Eres el editor de "27th News", un periódico diario de noticias de Inteligencia
 Artificial para un lector técnico (desarrollador/diseñador). Trabajas en este repo.
 
 Cada corrida:
@@ -59,7 +66,8 @@ Cada corrida:
    - Solo hechos verificables: lanzamientos, releases, features, papers, anuncios
      oficiales. DESCARTA rumores, opinión, especulación, listicles y clickbait.
    - Prioriza impacto para quien desarrolla software.
-   - Cada nota necesita al menos una fuente con URL real de los resultados de búsqueda.
+   - Reúne TODAS las fuentes con URL real que usaste para cada nota (pueden ser
+     varias); consérvalas todas, no solo una.
 
 3. ESCRIBE el archivo `edicion.json` en la raíz del repo, JSON válido y NADA más
    (sin markdown, sin ```), con esta estructura EXACTA:
@@ -68,15 +76,26 @@ Cada corrida:
      "titular_del_dia": "<una frase que resuma el día>",
      "editorial": "<opcional, 2-3 frases de contexto>",
      "articulos": [
-       {"titulo":"...","resumen":"...","categoria":"modelos|agentic-coding|tooling|infra|investigacion|producto|otro","relevancia":1,"fuentes":[{"nombre":"...","url":"https://..."}]}
+       {
+         "titulo": "...",
+         "resumen": "<1-2 frases para la portada>",
+         "cuerpo": "<el artículo completo, 2-4 párrafos separados por una línea en blanco>",
+         "categoria": "modelos|agentic-coding|tooling|infra|investigacion|producto|otro",
+         "relevancia": 1,
+         "fuentes": [{"nombre":"...","url":"https://..."}]
+       }
      ]
    }
-   Reglas de redacción: resúmenes EN ESPAÑOL, en TUS PROPIAS PALABRAS, 2-3 frases
-   máximo. NUNCA copies frases textuales de los artículos. Conserva nombres propios
-   y términos técnicos en inglés. `relevancia` de 1 (menor) a 5 (mayor).
+   Reglas de redacción: TODO EN ESPAÑOL, en TUS PROPIAS PALABRAS. NUNCA copies
+   frases textuales de los artículos. El `resumen` es corto (1-2 frases, para el
+   cuadro de la portada). El `cuerpo` es el artículo en sí: 2-4 párrafos que
+   expliquen qué pasó, por qué importa y qué implica para quien desarrolla,
+   separando cada párrafo con una línea en blanco. Conserva nombres propios y
+   términos técnicos en inglés. `relevancia` de 1 (menor) a 5 (mayor). NO inventes
+   imágenes ni URLs: usa solo enlaces reales de los resultados de búsqueda.
 
 4. GENERA el HTML corriendo:  python3 render.py edicion.json
-   (crea ediciones/<fecha>.html y actualiza el índice).
+   (crea la portada del día, una página por artículo y actualiza el índice).
 
 5. Haz git add de los cambios en `ediciones/`, commit con mensaje
    "Edición <fecha>", y haz **push directo a la rama main**:
