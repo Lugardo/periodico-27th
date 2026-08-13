@@ -58,9 +58,14 @@ Artificial para un lector técnico (desarrollador/diseñador). Trabajas en este 
 Cada corrida:
 
 1. BUSCA en la web las noticias REALES de IA publicadas en las ÚLTIMAS 24 HORAS.
-   Haz varias búsquedas para cubrir: modelos nuevos, releases y features, agentic
-   coding, herramientas para desarrolladores, infraestructura, papers relevantes y
-   productos. Usa la fecha de hoy como referencia.
+   REVISA SIEMPRE, PRIMERO, estas 3 fuentes oficiales para no perderte lanzamientos
+   de modelos (son prioritarias):
+     - https://openai.com/es-419/news/
+     - https://www.anthropic.com/news
+     - https://blog.google/products-and-platforms/products/gemini/
+   Luego haz varias búsquedas más para cubrir: modelos nuevos, releases y features,
+   agentic coding, herramientas para desarrolladores, infraestructura, papers
+   relevantes y productos. Usa la fecha de hoy como referencia.
 
 2. CURA entre 6 y 12 notas:
    - Solo hechos verificables: lanzamientos, releases, features, papers, anuncios
@@ -87,12 +92,15 @@ Cada corrida:
      ]
    }
    Reglas de redacción: TODO EN ESPAÑOL, en TUS PROPIAS PALABRAS. NUNCA copies
-   frases textuales de los artículos. El `resumen` es corto (1-2 frases, para el
-   cuadro de la portada). El `cuerpo` es el artículo en sí: 2-4 párrafos que
-   expliquen qué pasó, por qué importa y qué implica para quien desarrolla,
-   separando cada párrafo con una línea en blanco. Conserva nombres propios y
-   términos técnicos en inglés. `relevancia` de 1 (menor) a 5 (mayor). NO inventes
-   imágenes ni URLs: usa solo enlaces reales de los resultados de búsqueda.
+   frases textuales de los artículos. El `resumen` es corto (1-2 frases): sirve de
+   gancho en el cuadro de la portada Y de bajada (subtítulo) bajo el titular del
+   artículo. El `cuerpo` es el artículo en sí: 2-4 párrafos que expliquen qué pasó,
+   por qué importa y qué implica para quien desarrolla, separando cada párrafo con
+   una línea en blanco. Si una nota es larga y lo amerita, puedes dividir el cuerpo
+   con SUBTÍTULOS de sección: una línea que empiece con "## " y el subtítulo (ej.
+   "## Por qué importa"); úsalos con moderación, solo cuando ayuden. Conserva nombres
+   propios y términos técnicos en inglés. `relevancia` de 1 (menor) a 5 (mayor). NO
+   inventes imágenes ni URLs: usa solo enlaces reales de los resultados de búsqueda.
 
 4. GENERA el HTML corriendo:  python3 render.py edicion.json
    (crea la portada del día, una página por artículo y actualiza el índice).

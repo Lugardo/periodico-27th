@@ -87,6 +87,29 @@ def _head(titulo: str) -> str:
 </head>"""
 
 
+def _cuerpo_html(cuerpo: str) -> str:
+    """Cuerpo del artículo → párrafos. Una línea que empieza con '## ' se vuelve
+    subtítulo de sección; las líneas en blanco separan párrafos."""
+    partes, buf = [], []
+
+    def cerrar():
+        if buf:
+            partes.append(f"<p>{esc(' '.join(buf))}</p>")
+            buf.clear()
+
+    for linea in (cuerpo or "").splitlines():
+        s = linea.strip()
+        if not s:
+            cerrar()
+        elif s.startswith("## "):
+            cerrar()
+            partes.append(f'<h2 class="np-art__sub">{esc(s[3:].strip())}</h2>')
+        else:
+            buf.append(s)
+    cerrar()
+    return "".join(partes)
+
+
 def _fuentes_html(fuentes: list) -> str:
     items = "".join(
         f'<li><a class="link-muted" href="{esc(f.get("url"))}" target="_blank" '
@@ -140,9 +163,8 @@ def render_portada(data: dict) -> str:
 
 # ── artículo individual ──────────────────────────────────────────────────────
 def render_articulo(fecha: str, a: dict) -> str:
-    cuerpo = a.get("cuerpo") or a.get("resumen") or ""
-    parrafos = "".join(f"<p>{esc(p.strip())}</p>"
-                       for p in re.split(r"\n\s*\n|\n", cuerpo) if p.strip())
+    cuerpo = _cuerpo_html(a.get("cuerpo") or a.get("resumen") or "")
+    dek = f'<p class="np-art__dek">{esc(a["resumen"])}</p>' if a.get("resumen") else ""
     return f"""<!doctype html>
 <html lang="es">
 {_head(f"{esc(a.get('titulo'))} · {NOMBRE}")}
@@ -153,7 +175,8 @@ def render_articulo(fecha: str, a: dict) -> str:
     <article class="np-articulo">
       <span class="np-card__cat">{esc(_cat(a.get("categoria")))}</span>
       <h1 class="np-art__title">{esc(a.get("titulo"))}</h1>
-      <div class="np-art__cuerpo">{parrafos}</div>
+      {dek}
+      <div class="np-art__cuerpo">{cuerpo}</div>
       {_fuentes_html(a.get("fuentes"))}
     </article>
     <footer class="np-footer">
