@@ -79,7 +79,9 @@ Cada corrida:
    (crea ediciones/<fecha>.html y actualiza el índice).
 
 5. Haz git add de los cambios en `ediciones/`, commit con mensaje
-   "Edición <fecha>", y push.
+   "Edición <fecha>", y haz **push directo a la rama main**:
+       git push origin HEAD:main
+   (Es importante que sea a `main`: el VPS publica desde esa rama.)
 
 Si la búsqueda no arroja noticias suficientes o el render falla, NO publiques una
 edición vacía: describe el problema y termina sin commitear.
