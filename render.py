@@ -81,6 +81,7 @@ def _head(titulo: str) -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(titulo)}</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="stylesheet" href="/orbit-style.css">
 <link rel="stylesheet" href="/periodico.css">
 {SCRIPT_TEMA}
