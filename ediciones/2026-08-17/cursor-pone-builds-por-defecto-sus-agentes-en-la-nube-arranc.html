@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cursor pone &amp;quot;Builds&amp;quot; por defecto: sus agentes en la nube arrancan hasta 3 veces más rápido · 27th News</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/orbit-style.css">
+<link rel="stylesheet" href="/periodico.css">
+<script>
+(function(){try{var t=localStorage.getItem('27th-tema');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();
+function toggleTema(){var d=document.documentElement.classList.toggle('dark');
+try{localStorage.setItem('27th-tema',d?'dark':'light');}catch(e){}}
+</script>
+</head>
+<body>
+  <button class="np-tema" onclick="toggleTema()" aria-label="Cambiar tema">
+<svg class="ico ico-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+<svg class="ico ico-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+  <div class="container-narrow np-wrap">
+    <a class="np-volver" href="/2026-08-17">← 17 de agosto de 2026</a>
+    <article class="np-articulo">
+      <span class="np-card__cat">Agentic coding</span>
+      <h1 class="np-art__title">Cursor pone &quot;Builds&quot; por defecto: sus agentes en la nube arrancan hasta 3 veces más rápido</h1>
+      <p class="np-art__dek">Desde hoy, todos los entornos de Cloud Agents de Cursor usan por defecto instantáneas del sistema de archivos en lugar de reconstruirse desde cero en cada sesión.</p>
+      <div class="np-art__cuerpo"><p>Cursor activó hoy, 17 de agosto, el uso por defecto de &quot;Builds&quot; en todos los entornos de Cloud Agents, tanto nuevos como existentes. La función, introducida hace unos días, prepara en segundo plano copias listas del entorno de desarrollo del usuario, para que cada agente arranque sobre una máquina ya inicializada en vez de instalar dependencias desde cero cada vez.</p><p>Según la compañía, el cambio reduce el tiempo de arranque hasta 10 veces y el tiempo hasta el primer token generado hasta 3 veces. El truco técnico es bifurcar (fork) máquinas ya inicializadas usando instantáneas del sistema de archivos, en lugar de repetir el ciclo completo de instalación. Cuando un build se completa con éxito, se convierte en la base desde la que arrancan los siguientes agentes, y Cursor mantiene copias &quot;calientes&quot; listas de antemano.</p><p>Para quien desarrolla con flotas de agentes en paralelo, el ahorro de tiempo muerto por sesión es directo: el comando de instalación se puede usar para todo lo que se pueda preparar con anticipación, mientras que el comando de arranque queda reservado a los servicios que necesitan estar frescos en cada sesión.</p></div>
+      <div class="np-fuentes"><div class="np-fuentes__tit">Fuentes</div><ul><li><a class="link-muted" href="https://cursor.com/changelog/08-13-26" target="_blank" rel="noopener">Cursor — Changelog ↗</a></li><li><a class="link-muted" href="https://www.techtimes.com/articles/324667/20260817/cursor-builds-goes-default-agent-fleets-survive-bad-commits-start-three-times-faster.htm" target="_blank" rel="noopener">Tech Times ↗</a></li></ul></div>
+    </article>
+    <footer class="np-footer">
+      <a class="np-btn" href="/2026-08-17"><span>←</span> Volver a la edición</a>
+    </footer>
+  </div>
+</body>
+</html>
