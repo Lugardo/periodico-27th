@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Perplexity lleva su agente Computer al dispositivo con Portable Computer · 27th News</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/orbit-style.css">
+<link rel="stylesheet" href="/periodico.css">
+<script>
+(function(){try{var t=localStorage.getItem('27th-tema');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();
+function toggleTema(){var d=document.documentElement.classList.toggle('dark');
+try{localStorage.setItem('27th-tema',d?'dark':'light');}catch(e){}}
+</script>
+</head>
+<body>
+  <button class="np-tema" onclick="toggleTema()" aria-label="Cambiar tema">
+<svg class="ico ico-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+<svg class="ico ico-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+  <div class="container-narrow np-wrap">
+    <a class="np-volver" href="/2026-09-04">← 4 de septiembre de 2026</a>
+    <article class="np-articulo">
+      <span class="np-card__cat">Infraestructura</span>
+      <h1 class="np-art__title">Perplexity lleva su agente Computer al dispositivo con Portable Computer</h1>
+      <p class="np-art__dek">La nueva variante de Perplexity Computer corre por completo en local en Mac, con un clasificador de PII de código abierto que decide qué tareas se quedan en el equipo y cuáles van a la nube.</p>
+      <div class="np-art__cuerpo"><p>Perplexity liberó a inicios de septiembre Portable Computer, una versión de su agente Computer que corre orquestador, subagentes y el resto del harness enteramente en hardware local, sin depender de la nube. El modelo local por defecto es una versión post-entrenada propia de 27B parámetros (PPLX 27B), con Qwen 3.8 27B como alternativa y soporte para Nvidia Nemotron 3.5 Lightning en camino.</p><p>La pieza más relevante para otros equipos que construyen agentes es el clasificador que decide, tarea por tarea, si conviene resolverla en el dispositivo o mandarla a un modelo en la nube: un modelo de clasificación de texto de apenas 0.6B de parámetros especializado en detectar información personal identificable, que Perplexity liberó como código abierto en Hugging Face junto con los pesos del modelo local.</p><p>En las pruebas internas de Perplexity sobre su propio banco de tareas de trabajo de conocimiento, el modelo local con post-entrenamiento propio (PPLX 27B) alcanza 85.4%, por encima del 82.6% de un Qwen 3.8 27B sin modificar, aunque ambos empiezan a degradarse pasados los 100,000 tokens de contexto pese a que la ventana nominal llega a 260,000. Es un recordatorio útil de que correr en local todavía no equivale a rendir igual que en la nube en tareas largas.</p></div>
+      <div class="np-fuentes"><div class="np-fuentes__tit">Fuentes</div><ul><li><a class="link-muted" href="https://www.marktechpost.com/2026/09/01/perplexity-releases-hybrid-compute-on-mac-cloud-agents-orchestrate-down-to-a-local-model-gated-on-device/" target="_blank" rel="noopener">MarkTechPost ↗</a></li><li><a class="link-muted" href="https://www.perplexity.ai/hub/blog/a-local-first-agent-for-private-and-cost-effective-knowledge-work" target="_blank" rel="noopener">Perplexity ↗</a></li></ul></div>
+    </article>
+    <footer class="np-footer">
+      <a class="np-btn" href="/2026-09-04"><span>←</span> Volver a la edición</a>
+    </footer>
+  </div>
+</body>
+</html>
