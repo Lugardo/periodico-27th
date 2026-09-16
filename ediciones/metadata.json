@@ -30,5 +30,6 @@
  "2026-09-11": "OpenAI abre su Agents API al público mientras Anthropic expone campañas masivas de distillation china y la carrera por los Problemas del Milenio se acelera",
  "2026-09-12": "OpenAI abre al público la infraestructura detrás de Codex y un modelo de voz full-duplex, justo cuando la demanda de Astra desborda su capacidad; Anthropic publica su reporte de amenazas más detallado hasta ahora.",
  "2026-09-13": "Dario Amodei pide frenar el ritmo de las capacidades de la IA y Sam Altman se suma, mientras un enjambre de agentes con Codex y DeepSeek vulnera a 395 organizaciones a través de PaperCut",
- "2026-09-14": "Anthropic recorta en los hechos los límites de Claude Code justo cuando Microsoft entra al debate sobre el ritmo de la IA con su propio código de conducta"
+ "2026-09-14": "Anthropic recorta en los hechos los límites de Claude Code justo cuando Microsoft entra al debate sobre el ritmo de la IA con su propio código de conducta",
+ "2026-09-16": "Agentes que corren en tu propia GPU, más eficiencia por watt en los data centers y una ronda de parches en las CLIs de coding marcan el día en IA."
 }
