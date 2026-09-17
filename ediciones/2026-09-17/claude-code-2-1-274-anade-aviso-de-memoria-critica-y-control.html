@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Code 2.1.274 añade aviso de memoria crítica y controles finos para MCP · 27th News</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/orbit-style.css">
+<link rel="stylesheet" href="/periodico.css">
+<script>
+(function(){try{var t=localStorage.getItem('27th-tema');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();
+function toggleTema(){var d=document.documentElement.classList.toggle('dark');
+try{localStorage.setItem('27th-tema',d?'dark':'light');}catch(e){}}
+</script>
+</head>
+<body>
+  <button class="np-tema" onclick="toggleTema()" aria-label="Cambiar tema">
+<svg class="ico ico-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+<svg class="ico ico-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+  <div class="container-narrow np-wrap">
+    <a class="np-volver" href="/2026-09-17">← 17 de septiembre de 2026</a>
+    <article class="np-articulo">
+      <span class="np-card__cat">Agentic coding</span>
+      <h1 class="np-art__title">Claude Code 2.1.274 añade aviso de memoria crítica y controles finos para MCP</h1>
+      <p class="np-art__dek">La nueva versión avisa cuando el uso de memoria se vuelve crítico, deja configurar el tiempo de espera al arrancar servidores MCP y repara sesiones que quedaban atascadas por errores de tool_use_id.</p>
+      <div class="np-art__cuerpo"><p>Anthropic publicó la versión 2.1.274 de Claude Code, centrada en estabilidad operativa más que en features nuevas. La CLI ahora muestra una advertencia visible cuando el uso de memoria del proceso llega a niveles críticos, con sugerencias concretas para liberar memoria o reiniciar la sesión antes de que falle.</p><p>Para quien administra servidores MCP, la nueva variable de entorno CLAUDE_CODE_MCP_STARTUP_WAIT_MS permite controlar cuánto tiempo espera Claude Code a que un servidor MCP arranque antes de continuar, incluyendo la opción de no esperar en absoluto (valor 0). La versión también agrega el atributo effort a los traces de OpenTelemetry, útil para quien instrumenta el uso de la herramienta en flujos propios.</p><p>Entre las correcciones, destaca que las sesiones que quedaban atascadas por errores de &quot;unexpected tool_use_id&quot; ahora se auto-reparan en lugar de requerir reiniciar manualmente, se corrigió la pérdida del /goal activo al reanudar sesiones que habían sido compactadas, y mejoró el manejo de errores de autenticación MCP del tipo 403 insufficient_scope, un problema recurrente en integraciones con gateways de terceros.</p></div>
+      <div class="np-fuentes"><div class="np-fuentes__tit">Fuentes</div><ul><li><a class="link-muted" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code Changelog ↗</a></li></ul></div>
+    </article>
+    <footer class="np-footer">
+      <a class="np-btn" href="/2026-09-17"><span>←</span> Volver a la edición</a>
+    </footer>
+  </div>
+</body>
+</html>
