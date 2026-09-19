@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Code suma soporte para AGENTS.md y mueve el clasificador de Auto mode al servidor · 27th News</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/orbit-style.css">
+<link rel="stylesheet" href="/periodico.css">
+<script>
+(function(){try{var t=localStorage.getItem('27th-tema');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();
+function toggleTema(){var d=document.documentElement.classList.toggle('dark');
+try{localStorage.setItem('27th-tema',d?'dark':'light');}catch(e){}}
+</script>
+</head>
+<body>
+  <button class="np-tema" onclick="toggleTema()" aria-label="Cambiar tema">
+<svg class="ico ico-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+<svg class="ico ico-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+  <div class="container-narrow np-wrap">
+    <a class="np-volver" href="/2026-09-19">← 19 de septiembre de 2026</a>
+    <article class="np-articulo">
+      <span class="np-card__cat">Agentic coding</span>
+      <h1 class="np-art__title">Claude Code suma soporte para AGENTS.md y mueve el clasificador de Auto mode al servidor</h1>
+      <p class="np-art__dek">Las versiones 2.1.275 a 2.1.278 de Claude Code, lanzadas esta semana, agregan lectura de AGENTS.md como alternativa a CLAUDE.md, controles más finos de sandboxing y gateways, y un Auto mode que ahora clasifica en el servidor sin costo extra de latencia.</p>
+      <div class="np-art__cuerpo"><p>Anthropic encadenó varias versiones de Claude Code entre el 17 y el 19 de septiembre. La más notable para quien mantiene monorepos o plantillas compartidas es el soporte de AGENTS.md: si un proyecto no tiene un archivo CLAUDE.md, Claude Code ahora puede leer AGENTS.md en su lugar, con la opción configurable desde &quot;Project instructions&quot; en /config (por ahora no disponible en Bedrock, Vertex ni Foundry).</p><p>Otro cambio de fondo es que Auto mode pasa a usar por defecto un clasificador que corre del lado del servidor, sin el costo de overhead que tenía antes, aplicable a Claude API, Enterprise, Bedrock, Vertex, Foundry y gateways (con opción de desactivarlo vía variable de entorno). En sandboxing se agregó control granular por comando de allowed_domains para Bash, PowerShell y Monitor en Auto mode, además de una corrección a un patrón de exclusión que antes eximía comandos compuestos completos en lugar de evaluar cada parte por separado.</p><p>El ciclo de releases también trajo mejoras a la extensión de VS Code —mapa de agentes con shells en segundo plano y tareas visibles, botón para copiar respuestas, cierre de sesión desde el panel— y corrigió errores que hacían fallar sesiones con el mensaje &quot;text content blocks must be non-empty&quot;, además de un bug crítico de un release anterior que rompía cualquier request cuando ANTHROPIC_BASE_URL apuntaba a un proxy o gateway.</p></div>
+      <div class="np-fuentes"><div class="np-fuentes__tit">Fuentes</div><ul><li><a class="link-muted" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code Changelog ↗</a></li></ul></div>
+    </article>
+    <footer class="np-footer">
+      <a class="np-btn" href="/2026-09-19"><span>←</span> Volver a la edición</a>
+    </footer>
+  </div>
+</body>
+</html>
