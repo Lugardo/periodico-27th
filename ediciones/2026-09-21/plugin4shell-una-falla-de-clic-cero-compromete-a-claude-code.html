@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plugin4Shell: una falla de clic cero compromete a Claude Code, Codex, Copilot y Gemini CLI · 27th News</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/orbit-style.css">
+<link rel="stylesheet" href="/periodico.css">
+<script>
+(function(){try{var t=localStorage.getItem('27th-tema');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();
+function toggleTema(){var d=document.documentElement.classList.toggle('dark');
+try{localStorage.setItem('27th-tema',d?'dark':'light');}catch(e){}}
+</script>
+</head>
+<body>
+  <button class="np-tema" onclick="toggleTema()" aria-label="Cambiar tema">
+<svg class="ico ico-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+<svg class="ico ico-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+  <div class="container-narrow np-wrap">
+    <a class="np-volver" href="/2026-09-21">← 21 de septiembre de 2026</a>
+    <article class="np-articulo">
+      <span class="np-card__cat">Agentic coding</span>
+      <h1 class="np-art__title">Plugin4Shell: una falla de clic cero compromete a Claude Code, Codex, Copilot y Gemini CLI</h1>
+      <p class="np-art__dek">Una investigación de seguridad reveló que los cuatro agentes de código con IA más usados verifican mal el hash de los plugins que instalan, lo que permite colar código malicioso sin ninguna acción del usuario. Solo Anthropic y OpenAI ya lo corrigieron.</p>
+      <div class="np-art__cuerpo"><p>La firma de seguridad Air encontró que los cuatro agentes de código más usados con IA (Claude Code, Codex, GitHub Copilot y Gemini CLI) confían en el hash SHA de un commit para verificar que un plugin instalado sea exactamente el que el desarrollador revisó, pero nunca comprueban que ese hash siga apuntando al mismo contenido. Un dueño de repositorio puede crear una rama cuyo nombre coincida con el hash de 40 caracteres del commit aprobado; en el checkout, git puede priorizar esa referencia por nombre sobre el objeto de commit original, así que el agente termina descargando e instalando código distinto al que fue revisado, sin pedir ninguna confirmación adicional.</p><p>En Gemini CLI el mecanismo de explotación es algo distinto: su proceso de plugins descarga el commit esperado pero luego hace checkout de FETCH_HEAD, así que basta con una rama llamada así en el repositorio para redirigir la instalación hacia contenido malicioso. El riesgo es serio porque estos plugins suelen heredar los mismos permisos del desarrollador que corre el agente, incluyendo acceso al código fuente local, credenciales de nube, llaves SSH y sistemas de producción.</p><p>Air avisó a los cuatro proveedores en junio y hasta el 18 de septiembre nadie había publicado un CVE ni un aviso formal. Anthropic ya corrigió el problema en Claude Code 2.1.179 y OpenAI en Codex 0.146.0; Microsoft no ha lanzado parche para Copilot y Google retiró Gemini CLI sin corregirlo. Quien instale plugins solo desde los marketplaces oficiales de GitHub de cada agente está menos expuesto, porque la actualización automática viene activada por defecto únicamente ahí; los marketplaces externos son el punto de mayor riesgo.</p></div>
+      <div class="np-fuentes"><div class="np-fuentes__tit">Fuentes</div><ul><li><a class="link-muted" href="https://thehackernews.com/2026/09/plugin4shell-lets-repository-owners.html" target="_blank" rel="noopener">The Hacker News ↗</a></li><li><a class="link-muted" href="https://www.helpnetsecurity.com/2026/09/18/plugin4shell-ai-coding-agents-vulnerability/" target="_blank" rel="noopener">Help Net Security ↗</a></li></ul></div>
+    </article>
+    <footer class="np-footer">
+      <a class="np-btn" href="/2026-09-21"><span>←</span> Volver a la edición</a>
+    </footer>
+  </div>
+</body>
+</html>
