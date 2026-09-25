@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meta corrige en menos de un día un zero-day que convertía a su asistente Muse en una puerta trasera en Mac · 27th News</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/orbit-style.css">
+<link rel="stylesheet" href="/periodico.css">
+<script>
+(function(){try{var t=localStorage.getItem('27th-tema');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();
+function toggleTema(){var d=document.documentElement.classList.toggle('dark');
+try{localStorage.setItem('27th-tema',d?'dark':'light');}catch(e){}}
+</script>
+</head>
+<body>
+  <button class="np-tema" onclick="toggleTema()" aria-label="Cambiar tema">
+<svg class="ico ico-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+<svg class="ico ico-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+  <div class="container-narrow np-wrap">
+    <a class="np-volver" href="/2026-09-25">← 25 de septiembre de 2026</a>
+    <article class="np-articulo">
+      <span class="np-card__cat">General</span>
+      <h1 class="np-art__title">Meta corrige en menos de un día un zero-day que convertía a su asistente Muse en una puerta trasera en Mac</h1>
+      <p class="np-art__dek">El investigador Patrick Wardle mostró que un ajuste no documentado del cliente de Muse para macOS permitía redirigir el dictado por voz a un servidor atacante y robar el token de sesión, exponiendo todo lo que el agente tuviera conectado.</p>
+      <div class="np-art__cuerpo"><p>El investigador de seguridad Patrick Wardle divulgó una vulnerabilidad de día cero en el cliente de escritorio para macOS de Muse, el asistente de IA de Meta. El fallo giraba alrededor de un ajuste interno no documentado que controlaba el endpoint al que se enviaba el audio dictado por el usuario: cualquier proceso local sin privilegios especiales podía modificar ese ajuste para redirigir el tráfico de dictado hacia un servidor bajo control de un atacante, capturando en el camino el token de autenticación de la cuenta de Muse. Wardle también demostró que el vector remoto más realista sería un ataque de tipo ClickFix, en el que se engaña a la víctima para que copie y ejecute un comando maligno en su propia terminal.</p><p>La gravedad del hallazgo no está tanto en la técnica —relativamente sencilla— sino en el alcance: al tratarse de un asistente agéntico con permiso para tocar correo, mensajería y otras cuentas conectadas del usuario, robar ese token equivale a heredar todo lo que Muse tenía autorizado a hacer en nombre de la víctima. Meta publicó una corrección de emergencia unas 16 horas después de la divulgación pública, eliminando por completo la posibilidad de cambiar ese endpoint desde ajustes locales, justo en la víspera de su conferencia Meta Connect.</p><p>El episodio se suma a una seguidilla de incidentes similares en asistentes agénticos de distintas compañías durante las últimas semanas, y refuerza un patrón que ya preocupa a quien construye con estas herramientas: entre más acceso de sistema se le da a un agente de IA para que sea útil, más grande es la superficie de ataque si algo en su configuración local puede manipularse sin privilegios elevados.</p></div>
+      <div class="np-fuentes"><div class="np-fuentes__tit">Fuentes</div><ul><li><a class="link-muted" href="https://thehackernews.com/2026/09/one-hidden-meta-muse-setting-could-let.html" target="_blank" rel="noopener">The Hacker News ↗</a></li><li><a class="link-muted" href="https://www.malwarebytes.com/blog/bugs/2026/09/metas-muse-ai-assistant-has-a-zero-day-that-can-turn-it-into-a-mac-backdoor" target="_blank" rel="noopener">Malwarebytes ↗</a></li></ul></div>
+    </article>
+    <footer class="np-footer">
+      <a class="np-btn" href="/2026-09-25"><span>←</span> Volver a la edición</a>
+    </footer>
+  </div>
+</body>
+</html>
