@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Together AI revela que uno de sus agentes de código filtró una credencial que expuso muestras de prompts de clientes · 27th News</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/orbit-style.css">
+<link rel="stylesheet" href="/periodico.css">
+<script>
+(function(){try{var t=localStorage.getItem('27th-tema');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();
+function toggleTema(){var d=document.documentElement.classList.toggle('dark');
+try{localStorage.setItem('27th-tema',d?'dark':'light');}catch(e){}}
+</script>
+</head>
+<body>
+  <button class="np-tema" onclick="toggleTema()" aria-label="Cambiar tema">
+<svg class="ico ico-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+<svg class="ico ico-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+  <div class="container-narrow np-wrap">
+    <a class="np-volver" href="/2026-11-24">← 24 de noviembre de 2026</a>
+    <article class="np-articulo">
+      <span class="np-card__cat">Agentic coding</span>
+      <h1 class="np-art__title">Together AI revela que uno de sus agentes de código filtró una credencial que expuso muestras de prompts de clientes</h1>
+      <p class="np-art__dek">Un agente que trabajaba en un repositorio público hizo commit de una llave que abría un repo privado en Hugging Face con muestras de prompts; un tercero alcanzó a descargarlas antes de que se revirtiera.</p>
+      <div class="np-art__cuerpo"><p>Together AI publicó un reporte de incidente con una causa que preocupa a cualquier equipo que trabaje con agentes: uno de sus agentes de programación, mientras trabajaba en xorl, un proyecto público en GitHub, incluyó en un commit una credencial. Esa llave daba acceso a un repositorio privado en Hugging Face con muestras de prompts usadas para pruebas, provenientes de solicitudes a MiniMax M3, GLM-5.2 y Kimi K2.6, mayormente de junio y julio de 2026.</p><p>El escaneo automático detectó la credencial y el commit se revirtió, pero un tercero ya había descargado las muestras y llegó a probar llaves de otros servicios que encontró dentro. Cinco de esas llaves resultaron ser señuelos de un experimento de investigación de Dragos, el mismo que días antes llevó a OpenRouter a retirar a tres proveedores de inferencia. Together asegura que no ha encontrado más fugas, aunque su revisión de los prompts afectados sigue abierta.</p><p>Como respuesta, la empresa endureció los controles de credenciales, activó escaneo de secretos en pull requests, cambió sus prácticas para agentes de código y puso Zero Data Retention como opción por defecto en cuentas nuevas. La lección práctica: si un agente puede leer secretos, también puede publicarlos; conviene darle credenciales de alcance mínimo y bloquear los commits con secretos antes de que lleguen al remoto. Quien haya usado esos modelos a través de Together u OpenRouter debería rotar sus llaves.</p></div>
+      <div class="np-fuentes"><div class="np-fuentes__tit">Fuentes</div><ul><li><a class="link-muted" href="https://futurumgroup.com/insights/together-ais-agent-credential-leak-exposes-agentic-pipeline-risk/" target="_blank" rel="noopener">Futurum Group ↗</a></li><li><a class="link-muted" href="https://www.startuphub.ai/ai-news/technology/2026/together-ai-says-coding-agent-leaked-user-prompts" target="_blank" rel="noopener">StartupHub.ai ↗</a></li><li><a class="link-muted" href="https://notebookcheck.net/OpenRouter-cuts-three-AI-providers-Who-needs-to-rotate-API-keys-now.1457670.0.html" target="_blank" rel="noopener">Notebookcheck ↗</a></li><li><a class="link-muted" href="https://www.techbooky.com/together-ai-says-coding-agent-exposed-credential-in-customer-prompt-leak/" target="_blank" rel="noopener">Techbooky ↗</a></li></ul></div>
+    </article>
+    <footer class="np-footer">
+      <a class="np-btn" href="/2026-11-24"><span>←</span> Volver a la edición</a>
+    </footer>
+  </div>
+</body>
+</html>
