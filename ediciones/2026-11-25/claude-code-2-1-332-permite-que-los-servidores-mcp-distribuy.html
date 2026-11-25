@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Code 2.1.332 permite que los servidores MCP distribuyan skills · 27th News</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/orbit-style.css">
+<link rel="stylesheet" href="/periodico.css">
+<script>
+(function(){try{var t=localStorage.getItem('27th-tema');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();
+function toggleTema(){var d=document.documentElement.classList.toggle('dark');
+try{localStorage.setItem('27th-tema',d?'dark':'light');}catch(e){}}
+</script>
+</head>
+<body>
+  <button class="np-tema" onclick="toggleTema()" aria-label="Cambiar tema">
+<svg class="ico ico-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+<svg class="ico ico-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+  <div class="container-narrow np-wrap">
+    <a class="np-volver" href="/2026-11-25">← 25 de noviembre de 2026</a>
+    <article class="np-articulo">
+      <span class="np-card__cat">Agentic coding</span>
+      <h1 class="np-art__title">Claude Code 2.1.332 permite que los servidores MCP distribuyan skills</h1>
+      <p class="np-art__dek">La versión publicada hoy agrega, en beta, skills servidas desde servidores MCP y un nuevo hook para vetar comandos de shell que una skill intente ejecutar al cargarse.</p>
+      <div class="np-art__cuerpo"><p>Anthropic liberó Claude Code 2.1.332 con una novedad de fondo para quien construye integraciones: los servidores MCP ya pueden entregar skills, no solo herramientas. En el menú `/` aparecen con el formato `servidor:skill`, de modo que un mismo servidor puede empaquetar el acceso a un sistema y las instrucciones procedimentales para usarlo bien. La función está en beta.</p><p>Como contrapeso de seguridad llega el evento de hook `PreSkillShellCommand`, que permite rechazar los comandos de shell en línea que una skill o comando intente correr al cargarse. Es la pieza que faltaba para que los equipos acepten skills de terceros sin abrir la puerta a ejecución arbitraria. La release también corrige que los IDs de tareas MCP de más de 128 caracteres fallaran (ahora se aceptan hasta 1,024).</p><p>En el frente de proveedores, el alias `sonnet` en Google Cloud Agent Platform y Microsoft Foundry pasa a apuntar a Sonnet 5.5, Foundry adopta Opus 5.5 para `opus` y Sonnet 5.5 como modelo por defecto, y Sonnet 4, Opus 4 y Opus 4.1 quedan marcados como retirados en Foundry. Si tienes filtros de OpenTelemetry basados en `service.name`, revisa: las sesiones de la pestaña Code de Desktop ahora reportan `claude-code-desktop`.</p></div>
+      <div class="np-fuentes"><div class="np-fuentes__tit">Fuentes</div><ul><li><a class="link-muted" href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">Claude Code Docs — Changelog ↗</a></li></ul></div>
+    </article>
+    <footer class="np-footer">
+      <a class="np-btn" href="/2026-11-25"><span>←</span> Volver a la edición</a>
+    </footer>
+  </div>
+</body>
+</html>
