@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tencent libera DFly2, un drafter de speculative decoding que reutiliza el KV cache sparse del modelo objetivo · 27th News</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/orbit-style.css">
+<link rel="stylesheet" href="/periodico.css">
+<script>
+(function(){try{var t=localStorage.getItem('27th-tema');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();
+function toggleTema(){var d=document.documentElement.classList.toggle('dark');
+try{localStorage.setItem('27th-tema',d?'dark':'light');}catch(e){}}
+</script>
+</head>
+<body>
+  <button class="np-tema" onclick="toggleTema()" aria-label="Cambiar tema">
+<svg class="ico ico-luna" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+<svg class="ico ico-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+  <div class="container-narrow np-wrap">
+    <a class="np-volver" href="/2026-11-27">← 27 de noviembre de 2026</a>
+    <article class="np-articulo">
+      <span class="np-card__cat">Infraestructura</span>
+      <h1 class="np-art__title">Tencent libera DFly2, un drafter de speculative decoding que reutiliza el KV cache sparse del modelo objetivo</h1>
+      <p class="np-art__dek">El equipo de infraestructura de Hunyuan reporta aceleraciones de extremo a extremo de 2.4x a 3.2x sobre DeepSeek-V4.1-Flash, GLM-5.3-Flash y Hy4 flash, sin alterar los pesos ni las salidas del modelo.</p>
+      <div class="np-art__cuerpo"><p>El equipo Hunyuan AI Infra de Tencent publicó como open source DFly2, un drafter de speculative decoding por bloques en paralelo pensado para modelos con atención sparse. Su particularidad es que no mantiene un cache propio: las capas del drafter leen directamente el KV cache de las capas DSA del modelo objetivo y su selección top-k de tokens, lo que evita un prefill adicional y reduce memoria.</p><p>Según las cifras de la propia Tencent, la aceleración de extremo a extremo es de 2.97x en DeepSeek-V4.1-Flash, 2.36x en GLM-5.3-Flash y 3.19x en Hy4 flash, con picos de hasta 4.2x en tareas agénticas de contexto largo sobre este último. El drafter viene incluido con Hy4-flash, un MoE de 220B parámetros totales y unos 12B activos con contexto de 1M, y se entrena con AngelSpec, un framework nativo de PyTorch para MTP y speculative decoding.</p><p>El despliegue está documentado con SGLang y vLLM (el soporte en este último sigue en progreso), con una guía rápida que asume un nodo de ocho GPUs. Hay discrepancias entre reportes sobre el número de capas del drafter, así que conviene revisar el reporte técnico antes de adoptarlo. Para quien sirve modelos sparse propios, es una vía para bajar latencia sin reentrenar el modelo principal.</p></div>
+      <div class="np-fuentes"><div class="np-fuentes__tit">Fuentes</div><ul><li><a class="link-muted" href="https://www.marktechpost.com/2026/11/26/tencent-dfly2-speculative-decoding-sparse-models/" target="_blank" rel="noopener">MarkTechPost ↗</a></li><li><a class="link-muted" href="https://pandaily.com/tencent-hunyuan-dfly2-speculative-decoding-draft-model" target="_blank" rel="noopener">Pandaily ↗</a></li><li><a class="link-muted" href="https://alphasignal.ai/news/tencent-open-sources-dfly2-hitting-4-2x-speed-on-long-context-ai" target="_blank" rel="noopener">AlphaSignal ↗</a></li></ul></div>
+    </article>
+    <footer class="np-footer">
+      <a class="np-btn" href="/2026-11-27"><span>←</span> Volver a la edición</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -59,5 +59,6 @@
  "2026-11-22": "Un fin de semana de seguridad: OpenRouter expulsa a tres proveedores por robo de prompts, agentes atacantes encuentran un zero-day solos, y Claude y Gemini ganan control del escritorio",
  "2026-11-24": "Anthropic lanza Claude Ship para que los agentes revisen, arreglen y aprueben PRs, mientras Z.ai estrena un Loop Transformer, GPT-6.2 Sol llega al chat de ChatGPT y Amazon compra la tecnología de Decart para impulsar Trainium",
  "2026-11-25": "Claude convierte artifacts en apps de escritorio y abre las skills a los servidores MCP, mientras OpenAI lleva a GPT-6 al diseño de proteínas",
- "2026-11-26": "Cognition lanza SWE-2.1 sobre Kimi K3, Google publica seis papers de matemáticas escritos por agentes y Anthropic tienta a sus modelos con un honeypot"
+ "2026-11-26": "Cognition lanza SWE-2.1 sobre Kimi K3, Google publica seis papers de matemáticas escritos por agentes y Anthropic tienta a sus modelos con un honeypot",
+ "2026-11-27": "Anthropic cuenta cómo sus agentes reescribieron la Messages API en Rust, OpenAI corrige el cobro de GPT-6.2 y prueba inferencia cifrada, y Tencent libera un drafter que triplica la velocidad de modelos sparse"
 }
